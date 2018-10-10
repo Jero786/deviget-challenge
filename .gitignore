@@ -1,0 +1,7 @@
+.next
+.idea
+.DS_Store/
+package-lock.json
+node_modules
+coverage/
+coverage/lcov-report
