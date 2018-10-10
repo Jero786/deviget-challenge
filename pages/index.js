@@ -1,8 +1,15 @@
+// Resources
 import './index.scss';
-import React from 'react';
-import {fromJS} from 'immutable';
+
+// Actions
 import {fetchTopEntries} from 'actions/home/HomeActions';
+
+// Libs
 import {connect} from 'react-redux';
+import {fromJS} from 'immutable';
+import React from 'react';
+
+// Components
 import Layout from 'components/layout';
 
 export class HomeRedditView extends React.PureComponent {
@@ -13,11 +20,12 @@ export class HomeRedditView extends React.PureComponent {
 	}
 
 	render() {
+		const { entries } = this.props;
 		return (
 			<div className="dvg-home">
 				<Layout title="for reddit">
 					<div className="dvg-home__sidebar">
-						SIDEBAR
+						SIDEBAR ITEMS COUNT: { entries ? entries.size : null}
 					</div>
 					<div className="dvg-home__content">
 						CONTENT
@@ -28,12 +36,14 @@ export class HomeRedditView extends React.PureComponent {
 	}
 }
 
-HomeRedditView.propTypes = {};
+HomeRedditView.propTypes = {
+};
 
 const mapStateToProps = (state = fromJS({})) => {
 	const homeReducer = state.get('homeReducer');
 	return {
-		//accordionIndexExpanded: homeReducer.get('accordionIndexExpanded')
+		entries: homeReducer.get('entries'),
+		isSidebarExpanded: homeReducer.get('isSidebarExpanded')
 	}
 };
 

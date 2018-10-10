@@ -1,7 +1,9 @@
+// Libs
 import React from 'react';
 import {expect} from 'chai';
-import {mount, render, shallow} from 'enzyme';
-import sinon from 'sinon';
+import {render} from 'enzyme';
+
+// Components
 import Layout from 'components/layout';
 
 describe('Layout', () => {
@@ -15,6 +17,5 @@ describe('Layout', () => {
 
     expect(wrapper.hasClass('dvg-layout')).to.be.true;
   });
-
 
 });
