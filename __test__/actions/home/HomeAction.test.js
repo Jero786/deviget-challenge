@@ -5,7 +5,8 @@ import {
 	requestTopEntriesFailure,
 	onDismissSidebarItem,
 	actionTypes,
-	selectSidebarItem
+	selectSidebarItem,
+	onToggleSideBar
 } from 'actions/home/HomeActions';
 
 describe('Home Actions', () => {
@@ -27,5 +28,8 @@ describe('Home Actions', () => {
 
 	it('should trigger properly the action on dismiss side bar item', function () {
 		expect(onDismissSidebarItem().type).to.equals('ON_DISMISS_SIDEBAR_ITEM');
+	});
+	it('should trigger properly the action on dismiss side bar item', function () {
+		expect(onToggleSideBar().type).to.equals('ON_TOGGLE_SIDEBAR');
 	});
 });

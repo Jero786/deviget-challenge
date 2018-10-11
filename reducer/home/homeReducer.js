@@ -40,6 +40,12 @@ const homeReducer = (state = emptyState, action) => {
 			});
 		}
 
+		case actionTypes.ON_TOGGLE_SIDEBAR: {
+			return state.merge({
+				isSidebarExpanded: !state.get('isSidebarExpanded')
+			});
+		}
+
 		case actionTypes.SELECT_SIDEBAR_ITEM: {
 			return state.merge({
 				selectItemId: action.payload,

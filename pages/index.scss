@@ -13,17 +13,28 @@
 		}
 	}
 
+	&:not(.is-expanded) {
+		.dvg-home__content {
+			margin-left: 0;
+			padding: 0 20em;
+		}
+	}
+
 	&__sidebar {
+		width: 0;
 	}
 
 	&__content {
 		height: 100vh;
 		margin-left: 350px;
-		z-index: 20;
 		position: fixed;
 		top: 0;
 		right: 0;
 		left: 0;
+		padding: 0 10em;
+
+		z-index: 20;
+		cursor: pointer;
 		overflow: auto;
 
 		@include bp(xs) {

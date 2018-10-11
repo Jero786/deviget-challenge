@@ -2,7 +2,7 @@
 import './index.scss';
 
 // Actions
-import {fetchTopEntries, selectSidebarItem, onDismissSidebarItem} from 'actions/home/HomeActions';
+import {fetchTopEntries, selectSidebarItem, onDismissSidebarItem, onToggleSideBar} from 'actions/home/HomeActions';
 import {bindActionCreators} from 'redux';
 
 // Libs
@@ -26,7 +26,7 @@ export class HomeRedditView extends React.PureComponent {
 	}
 
 	render() {
-		const {entries, isSidebarExpanded, onSelectSidebarItem, selectItemId, entriesVisited, onDismissSidebarItem, entriesDismissed} = this.props;
+		const {entries, isSidebarExpanded, onSelectSidebarItem, selectItemId, entriesVisited, onDismissSidebarItem, entriesDismissed, onToggleSideBar} = this.props;
 
 		let keyIndex = 1;
 		const sideBarItemsEl = entries ? entries.filter(item => !entriesDismissed.includes(item.get('id')))
@@ -59,6 +59,8 @@ export class HomeRedditView extends React.PureComponent {
 				thumbnail={selectItem.get('thumbnail')}
 				title={selectItem.get('author')}
 				description={selectItem.get('title')}
+				id={selectItem.get('id')}
+				onSelectContent={onToggleSideBar}
 			/>
 		) : null;
 
@@ -98,6 +100,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onSelectSidebarItem: bindActionCreators(selectSidebarItem, dispatch),
 		onDismissSidebarItem: bindActionCreators(onDismissSidebarItem, dispatch),
+		onToggleSideBar: bindActionCreators(onToggleSideBar, dispatch),
 	}
 };
 
