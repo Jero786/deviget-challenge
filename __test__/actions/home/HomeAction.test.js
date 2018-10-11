@@ -4,6 +4,7 @@ import {
 	requestTopEntriesSuccess,
 	requestTopEntriesFailure,
 	actionTypes,
+	selectSidebarItem
 } from 'actions/home/HomeActions';
 
 describe('Home Actions', () => {
@@ -14,6 +15,9 @@ describe('Home Actions', () => {
 
 	it('should trigger properly the action fetch top entries success', function () {
 		expect(requestTopEntriesSuccess().type).to.equals(actionTypes.FETCH_REQUEST_ENTRIES_SUCCESS);
+	});
+	it('should trigger properly the action selected item on sidebar', function () {
+		expect(selectSidebarItem().type).to.equals(actionTypes.SELECT_SIDEBAR_ITEM);
 	});
 
 	it('should trigger properly the action fetch top entries failure', function () {

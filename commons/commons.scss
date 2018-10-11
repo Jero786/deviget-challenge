@@ -2,23 +2,10 @@
 $white: #fff;
 $black: rgba(0, 0, 0, 0.85);
 
-$purple: #ed4cc8;
 $grayLighter: #F7F7F8;
 $grayLight: #ebecf0;
 $gray: #808B97;
-$coral: #ff7a51;
-$malibuLighter: #9DFFFF;
-$malibu: #51E0FF;
-$meadow: #1FC59C;
-
-/* Mixins */
-@mixin soft-shadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19);
-}
-
-@mixin shallow-soft-shadow {
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.19);
-}
+$blue: #0D75F6;
 
 
 @mixin bp($min: 0, $max: 0) {

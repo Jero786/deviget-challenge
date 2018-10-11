@@ -1,0 +1,20 @@
+@import '../../../commons/commons';
+
+.dvg-home {
+	background-color: $white;
+	transition: all 1s;
+
+	&.is-expanded {
+		.dvg-home__sidebar {
+			width: 350px;
+		}
+	}
+
+	&__sidebar {
+		width: 0;
+	}
+
+	&__content {
+
+	}
+}

@@ -1,0 +1,88 @@
+@import '../../commons/commons';
+
+.dvg-sidebar-item {
+	padding: 1em;
+	cursor: pointer;
+	color: $white;
+
+	&:hover {
+		opacity: .8;
+	}
+
+	&__header {
+		padding: 1em 2em;
+		font-size: 1.4em;
+
+		&-status {
+			position: relative;
+			&:before {
+				content: '';
+				position: absolute;
+				height: .8em;
+				width: .8em;
+				left: -25px;
+				top: 0;
+
+				background-color: $blue;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding-right: 2.5em;
+
+		&-arrow {
+			font-size: 1.5em;
+		}
+
+		&-description {
+			padding: 1em .5em 1em 0;
+		}
+
+		&-image {
+			height: 10em;
+			width: 10em;
+			padding: 0 1em 0 0;
+
+		}
+
+		&-arrow {
+			position: absolute;
+			right: 0;
+			padding: 1em;
+		}
+
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: solid 1px gray;
+		padding: .8em 0;
+
+		&-dismiss {
+
+			&-icon {
+				border: solid 2px orange;
+				color: orange;
+				border-radius: 50%;
+				font-size: 9px;
+				font-weight: 600;
+				padding: .2em .7em;
+			}
+			&-text {
+				padding-left: .5em;
+				font-size: 1.4em;
+			}
+		}
+		&-comments {
+			color: orange;
+			font-size: 1.4em;
+			padding-right: 2em;
+		}
+	}
+}

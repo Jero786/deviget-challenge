@@ -1,0 +1,40 @@
+
+.dvg-sidebar {
+	background-color: black;
+	padding: 1em;
+	position: relative;
+	transition: all .5s;
+
+	&__header {
+		position: fixed;
+		background-color: black;
+		right: calc(100% - 350px);
+		padding: 1em;
+		left: 0;
+		top: -20px;
+
+		color: #fff;
+		text-align: center;
+		font-size: 2em;
+		z-index: 5;
+	}
+
+	&__footer {
+		position: fixed;
+		widows: 0;
+		background-color: black;
+		right: calc(100% - 350px);
+		left: 0;
+		bottom: 0;
+		padding: 1em;
+		font-size: 1.5em;
+		font-weight: 600;
+		text-align: center;
+		color: orange;
+		z-index: 5;
+	}
+
+	&:not(.is-expanded) {
+		transform: translateX(-350px);
+	}
+}
