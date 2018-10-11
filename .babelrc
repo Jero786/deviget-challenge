@@ -10,7 +10,8 @@
           "pages": "./pages",
           "commons": "./commons",
           "actions": "./actions",
-          "reducer": "./reducer"
+          "reducer": "./reducer",
+          "utils": "./utils",
         }
       }
     ]

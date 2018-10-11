@@ -1,0 +1,22 @@
+.dvg-home-content {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	height: 100vh;
+
+	&__title {
+		font-size: 3em;
+	}
+
+	&__image {
+		box-shadow: 5px 5px 20px 5px gray;
+		border-radius: 5px;
+		padding: 1em;
+	}
+
+	&__description {
+		font-size: 2em;
+	}
+}

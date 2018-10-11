@@ -5,7 +5,8 @@ export const actionTypes = {
 	FETCH_REQUEST_ENTRIES_REQUEST: 'FETCH_REQUEST_ENTRIES_REQUEST',
 	FETCH_REQUEST_ENTRIES_SUCCESS: 'FETCH_REQUEST_ENTRIES_SUCCESS',
 	FETCH_REQUEST_ENTRIES_FAILURE: 'FETCH_REQUEST_ENTRIES_FAILURE',
-	SELECT_SIDEBAR_ITEM: 'SELECT_SIDEBAR_ITEM'
+	ON_DISMISS_SIDEBAR_ITEM: 'ON_DISMISS_SIDEBAR_ITEM',
+	SELECT_SIDEBAR_ITEM: 'SELECT_SIDEBAR_ITEM',
 };
 
 export const requestTopEntries = () => {
@@ -16,12 +17,15 @@ export const requestTopEntriesSuccess = (payload) => {
 	return {type: actionTypes.FETCH_REQUEST_ENTRIES_SUCCESS, payload};
 };
 
-export const requestTopEntriesFailure = () => {
-	return {type: actionTypes.FETCH_REQUEST_ENTRIES_FAILURE};
-};
-
 export const selectSidebarItem = (payload) => {
 	return {type: actionTypes.SELECT_SIDEBAR_ITEM, payload};
+};
+export const onDismissSidebarItem = (payload) => {
+	return {type: actionTypes.ON_DISMISS_SIDEBAR_ITEM, payload};
+};
+
+export const requestTopEntriesFailure = () => {
+	return {type: actionTypes.FETCH_REQUEST_ENTRIES_FAILURE};
 };
 
 export const fetchTopEntries = () => {
@@ -37,4 +41,3 @@ export const fetchTopEntries = () => {
 			})
 	}
 };
-
