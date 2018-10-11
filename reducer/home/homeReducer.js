@@ -11,6 +11,7 @@ const emptyState = fromJS({
 	entriesVisited: [],
 	entriesDismissed: [],
 	limit: 50,
+	isDismissAll: false,
 	isSidebarExpanded: true,
 	selectItemId: null
 });
@@ -43,6 +44,12 @@ const homeReducer = (state = emptyState, action) => {
 		case actionTypes.ON_TOGGLE_SIDEBAR: {
 			return state.merge({
 				isSidebarExpanded: !state.get('isSidebarExpanded')
+			});
+		}
+		case actionTypes.ON_DISMISS_ALL: {
+			return state.merge({
+				isDismissAll: true,
+				selectItemId: null
 			});
 		}
 

@@ -2,7 +2,7 @@
 import './index.scss';
 
 // Actions
-import {fetchTopEntries, selectSidebarItem, onDismissSidebarItem, onToggleSideBar} from 'actions/home/HomeActions';
+import {fetchTopEntries, selectSidebarItem, onDismissSidebarItem, onToggleSideBar, onDismissAll} from 'actions/home/HomeActions';
 import {bindActionCreators} from 'redux';
 
 // Libs
@@ -26,10 +26,10 @@ export class HomeRedditView extends React.PureComponent {
 	}
 
 	render() {
-		const {entries, isSidebarExpanded, onSelectSidebarItem, selectItemId, entriesVisited, onDismissSidebarItem, entriesDismissed, onToggleSideBar} = this.props;
+		const {entries, isSidebarExpanded, onSelectSidebarItem, selectItemId, entriesVisited, onDismissSidebarItem, entriesDismissed, onToggleSideBar, onDismissAll, isDismissAll} = this.props;
 
 		let keyIndex = 1;
-		const sideBarItemsEl = entries ? entries.filter(item => !entriesDismissed.includes(item.get('id')))
+		const sideBarItemsEl = !isDismissAll && entries ? entries.filter(item => !entriesDismissed.includes(item.get('id')))
 			.map((item) => {
 				const author = item.get('author');
 				const description = item.get('title');
@@ -51,7 +51,7 @@ export class HomeRedditView extends React.PureComponent {
 						id={id}
 					/>
 				)
-			}) : <div>No entries :(</div>;
+			}) : null;
 
 		const selectItem = selectItemId && entries ? entries.find(item => item.get('id') === selectItemId) : null;
 		const bodyContentEl = selectItem ? (
@@ -68,7 +68,7 @@ export class HomeRedditView extends React.PureComponent {
 			<section className={classNames('dvg-home', {'is-expanded': isSidebarExpanded})}>
 				<Layout title="for reddit">
 					<div className="dvg-home__sidebar">
-						<Sidebar isExpanded={isSidebarExpanded}>
+						<Sidebar onDismissAll={onDismissAll} isExpanded={isSidebarExpanded}>
 							{sideBarItemsEl}
 						</Sidebar>
 					</div>
@@ -92,7 +92,8 @@ const mapStateToProps = (state = fromJS({})) => {
 		selectItemId: homeReducer.get('selectItemId'),
 		isSidebarExpanded: homeReducer.get('isSidebarExpanded'),
 		entriesVisited: homeReducer.get('entriesVisited'),
-		entriesDismissed: homeReducer.get('entriesDismissed')
+		entriesDismissed: homeReducer.get('entriesDismissed'),
+		isDismissAll: homeReducer.get('isDismissAll'),
 	}
 };
 
@@ -101,6 +102,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		onSelectSidebarItem: bindActionCreators(selectSidebarItem, dispatch),
 		onDismissSidebarItem: bindActionCreators(onDismissSidebarItem, dispatch),
 		onToggleSideBar: bindActionCreators(onToggleSideBar, dispatch),
+		onDismissAll: bindActionCreators(onDismissAll, dispatch),
 	}
 };
 

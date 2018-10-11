@@ -8,6 +8,7 @@ export const actionTypes = {
 	ON_DISMISS_SIDEBAR_ITEM: 'ON_DISMISS_SIDEBAR_ITEM',
 	SELECT_SIDEBAR_ITEM: 'SELECT_SIDEBAR_ITEM',
 	ON_TOGGLE_SIDEBAR: 'ON_TOGGLE_SIDEBAR',
+	ON_DISMISS_ALL: 'ON_DISMISS_ALL',
 };
 
 export const requestTopEntries = () => {
@@ -32,6 +33,10 @@ export const requestTopEntriesFailure = () => {
 
 export const onToggleSideBar = () => {
 	return {type: actionTypes.ON_TOGGLE_SIDEBAR};
+};
+
+export const onDismissAll = () => {
+	return {type: actionTypes.ON_DISMISS_ALL};
 };
 
 export const fetchTopEntries = () => {
